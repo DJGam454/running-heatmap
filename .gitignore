@@ -1,0 +1,6 @@
+cache/
+outputs/
+.venv/
+.DS_Store
+.ipynb_checkpoints/
+running-heatmap.code-workspace
