@@ -4,5 +4,19 @@ fitparse==1.2.0
 folium==0.20.0
 pyproj==3.7.2
 scipy==1.17.1
-Pillow==12.2.0
+Pillow==13.0.0
 matplotlib==3.10.9
+
+# Floor pin for the October 2026 eMudhra root removal (GHSA-6q48-6c7w-9gw2).
+# certifi is transitive here, so an explicit floor is the only way to keep it
+# current. 2026.10.19 is the first release that drops the compromised emSign
+# roots.
+certifi>=2026.10.19
+
+# folium pulls requests with no upper bound. Without a floor, a scanner that
+# cannot resolve the range reports the minimum satisfying version (2.9.2, from
+# 2015) and flags ten advisories against it.
+requests>=2.34.2
+
+# idna: transitive under requests, same unresolvable-range problem as above.
+idna>=3.20
